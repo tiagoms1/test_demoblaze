@@ -1,7 +1,7 @@
 import os
 
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, UnexpectedAlertPresentException
+from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.common.by import By
 import pytest
 

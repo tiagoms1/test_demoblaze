@@ -1,0 +1,30 @@
+name: Run-Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12
+
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2.1.0
+
+    - name: Install dependencies
+      run: poetry install
+
+    - name: Run tests
+      env:
+        BZM_API_KEY: ${{ secrets.BZM_API_KEY }}
+        BZM_API_SECRET: ${{ secrets.BZM_API_SECRET }}
+      run: poetry run test

@@ -1,11 +1,13 @@
+import os
+
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, UnexpectedAlertPresentException
 from selenium.webdriver.common.by import By
 import pytest
 
 base = 'a.blazemeter.com'
-API_KEY = ''
-API_SECRET = ''
+API_KEY = os.getenv('BZM_API_KEY')
+API_SECRET = os.getenv('BZM_API_SECRET')
 blazegrid_url = 'https://{}:{}@{}/api/v4/grid/wd/hub'.format(API_KEY, API_SECRET, base)
 
 bzm_options = {

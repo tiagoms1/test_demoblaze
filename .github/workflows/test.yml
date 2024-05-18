@@ -15,7 +15,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.12
+        python-version: 3.11
 
     - name: Install Poetry
       uses: abatilo/actions-poetry@v2.1.0
@@ -27,4 +27,4 @@ jobs:
       env:
         BZM_API_KEY: ${{ secrets.BZM_API_KEY }}
         BZM_API_SECRET: ${{ secrets.BZM_API_SECRET }}
-      run: poetry run test
+      run: poetry run pytest
